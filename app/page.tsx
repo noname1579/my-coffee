@@ -1,103 +1,121 @@
-import Image from "next/image";
+"use client"
+
+import { Coffee, Clock, MapPin } from "lucide-react"
+import Image from 'next/image'
+import Head from "next/head"
+import favicon from '../public/coffee.svg'
+import items from '../mocks'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen">
+      <Head>
+        <link rel="shortcut icon" href={favicon} />
+      </Head>
+      <section className="relative h-screen flex items-center justify-center">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+            alt="Coffee shop interior"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="text-6xl font-bold mb-4">My coffee</h1>
+          <p className="text-xl mb-8">Самый лучшие кофе только у нас</p>
+          <button className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#A88B6E] transition text-xl font-bold tracking-[1px]">
+            Меню
+          </button>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+          <div className="text-center">
+            <Coffee className="w-12 h-12 mx-auto mb-4 text-[#C8A27C]" />
+            <h3 className="text-xl font-bold mb-2 text-black">Премиум бобы</h3>
+            <p className="text-gray-600">Кофе поставляется с лучших ферм мира</p>
+          </div>
+          <div className="text-center">
+            <Clock className="w-12 h-12 mx-auto mb-4 text-[#C8A27C]" />
+            <h3 className="text-xl font-bold mb-2 text-black">Всегда свежий кофе</h3>
+            <p className="text-gray-600">Обжаривается каждое утро</p>
+          </div>
+          <div className="text-center">
+            <MapPin className="w-12 h-12 mx-auto mb-4 text-[#C8A27C]" />
+            <h3 className="text-xl font-bold mb-2 text-black">Удобное расположение</h3>
+            <p className="text-gray-600">Идеально для работы или отдыха</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-[#F8F5F2]">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-black">Популярные напитки</h2>
+          <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            { items.map((item, index) => (
+              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110">
+                <div className="relative h-48">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-[#362d2d] text-xl font-semibold mb-2">{item.name}</h3>
+                  <p className="text-[#C8A27C] text-xl font-bold">{item.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative h-[400px] w-full object-cover transition-transform duration-500 transform hover:scale-108">
+            <Image
+              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Coffee brewing"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+          <div>
+            <h2 className="text-4xl font-bold mb-6 text-black">История кофейни</h2>
+            <p className="text-gray-600 mb-6">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, cum odit. Debitis voluptatum, dolorem libero repudiandae consequuntur facilis enim, laboriosam fuga, impedit illo assumenda quidem quibusdam ullam ut amet facere.
+            </p>
+            <button className="bg-[#C8A27C] text-white px-8 py-3 rounded-full hover:bg-[#A88B6E] transition font-bold tracking-[1px]">
+              Подробнее
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-[#2C1810] text-white py-12">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">My coffee</h3>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Часы работы</h4>
+              <p className="text-gray-400">Ежедневно</p>
+              <p className="text-gray-400">7:00 - 22:00</p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Адрес</h4>
+              <p className="text-gray-400">г. Ростов-на-Дону</p>
+              <p className="text-gray-400">test@mail.ru</p>
+            </div>
+          </div>
+        </div>
       </footer>
-    </div>
-  );
+    </main>
+  )
 }
