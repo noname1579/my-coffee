@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     domains: ['images.unsplash.com', 'coffeefan.info'],
   },
   output: 'export',
-  basePath: '/coffee-app'
-};
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/coffee-app/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/coffee-app' : '',
+}
 
 export default nextConfig;
