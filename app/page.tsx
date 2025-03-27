@@ -2,30 +2,29 @@
 
 import { Coffee, Clock, MapPin } from "lucide-react"
 import Image from 'next/image'
-import Head from "next/head"
-import favicon from '../public/coffee.svg'
 import items from '../mocks'
+import Footer from "@/components/Footer"
+import Header from "@/components/Header"
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Head>
-        <link rel="shortcut icon" href={favicon} />
-      </Head>
+      <Header/>
+      
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
-            alt="Coffee shop interior"
+            alt=""
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-6xl font-bold mb-4">My coffee</h1>
-          <p className="text-xl mb-8">Самый лучшие кофе только у нас</p>
-          <button className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#A88B6E] transition text-xl font-bold tracking-[1px]">
+          <p className="text-xl mb-8">Самый лучший кофе у нас</p>
+          <button className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#967c63] transition text-xl font-bold cursor-pointer mt-6">
             Меню
           </button>
         </div>
@@ -90,32 +89,14 @@ export default function Home() {
             <p className="text-gray-600 mb-6">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, cum odit. Debitis voluptatum, dolorem libero repudiandae consequuntur facilis enim, laboriosam fuga, impedit illo assumenda quidem quibusdam ullam ut amet facere.
             </p>
-            <button className="bg-[#C8A27C] text-white px-8 py-3 rounded-full hover:bg-[#A88B6E] transition font-bold tracking-[1px]">
+            <button className="bg-[#C8A27C] text-white px-10 py-3 rounded-full hover:bg-[#A88B6E] transition font-bold tracking-[0.5px] cursor-pointer">
               Подробнее
             </button>
           </div>
         </div>
       </section>
 
-      <footer className="bg-[#2C1810] text-white py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">My coffee</h3>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Часы работы</h4>
-              <p className="text-gray-400">Ежедневно</p>
-              <p className="text-gray-400">7:00 - 22:00</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Адрес</h4>
-              <p className="text-gray-400">г. Ростов-на-Дону</p>
-              <p className="text-gray-400">test@mail.ru</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </main>
   )
 }
