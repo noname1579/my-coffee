@@ -1,14 +1,7 @@
-import { Menu } from "lucide-react"
 import { useState } from "react"
+import Burger from "./Burger"
 
 const Header = () => {
-
-  const [isOpen, setIsOpen] = useState(false)
-
-  function Click() {
-    setIsOpen(!isOpen)
-    console.log(isOpen)
-  }
 
   return ( 
     <div className="fixed w-full bg-white z-100 shadow-sm flex justify-between items-center h-15 md:px-50 px-10">
@@ -17,9 +10,12 @@ const Header = () => {
         <a href="#" className="text-black hover:text-[#C8A27C] transition text-[20px]">Главная</a>
         <a href="#" className="text-black hover:text-[#C8A27C] transition text-[20px]">Меню</a>
         <a href="#" className="text-black hover:text-[#C8A27C] transition text-[20px]">О нас</a>
-        <a href="#" className="text-black hover:text-[#C8A27C] transition text-[20px]">Конкакты</a>
+        <a href="#" className="text-black hover:text-[#C8A27C] transition text-[20px]">Контакты</a>
       </nav>
-        <Menu className="text-black scale-130 md:hidden" onClick={Click} />
+
+        <div className="md:hidden">
+          <Burger />
+        </div>
     </div>
   )
 }
