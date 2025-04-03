@@ -7,8 +7,8 @@ const Header = () => {
   return ( 
     <div className="fixed w-full bg-white z-100 shadow-sm flex justify-between items-center h-15 md:px-50 px-10">
       <div className="text-[#362d2d] flex items-center">
-        <Coffee /> 
-        <h1 className="text-2xl font-bold text-[#362d2d] flex items-center p-5">My coffee</h1>
+        <Coffee size={30} /> 
+        <h1 className="text-2xl font-bold text-[#362d2d] flex p-3">My coffee</h1>
       </div>
       <nav className="space-x-10 md:flex hidden">
         <Link href="/" className="text-black hover:text-[#C8A27C] transition text-[20px]">Главная</Link>
