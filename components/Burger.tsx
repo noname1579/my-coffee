@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react"
 
 export default function Burger () {
@@ -18,13 +19,13 @@ export default function Burger () {
         {isOpen && (
             <div className="absolute right-[-6rem] mt-1 w-48 bg-gray-900 rounded-md shadow-lg py-1 px-2 z-50 top-10">
                 <ul>
-                    <li className="py-2 hover:bg-gray-700"><a href="/">Главная</a></li>
-                    <li className="py-2 hover:bg-gray-700">Меню</li>
-                    <li className="py-2 hover:bg-gray-700">О нас</li>
-                    <li className="py-2 hover:bg-gray-700">Контакты</li>
+                    <li className="py-2 hover:bg-gray-700 z-10"><Link href="/">Главная</Link></li>
+                    <li className="py-2 hover:bg-gray-700 z-10">Меню</li>
+                    <li className="py-2 hover:bg-gray-700 z-10">О нас</li>
+                    <li className="py-2 hover:bg-gray-700 z-10">Контакты</li>
                 </ul>
             </div>
         )}
     </div>
-)
+  )
 }

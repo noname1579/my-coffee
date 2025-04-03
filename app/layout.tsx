@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "My coffee",
   description: "Кофейня",
   icons: {
-    icon: '/favicon.svg'
+    icon: './public/coffee.svg'
   }
 };
 

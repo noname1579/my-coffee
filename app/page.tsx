@@ -2,16 +2,18 @@
 
 import { Coffee, Clock, MapPin } from "lucide-react"
 import Image from 'next/image'
-import items from '../mocks'
+import items from './mocks_home'
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import Link from "next/link"
 
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+
       <Header/>
-      
+
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <Image
@@ -25,9 +27,9 @@ export default function Home() {
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-6xl font-bold mb-4">My coffee</h1>
           <p className="text-xl mb-8">Самый лучший кофе у нас</p>
-          <button className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#967c63] transition text-xl font-bold cursor-pointer mt-6">
+          <Link href='/menu' className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#967c63] transition text-xl font-bold cursor-pointer mt-6">
             Меню
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -77,7 +79,7 @@ export default function Home() {
 
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] w-full object-cover transition-transform duration-500 transform hover:scale-108">
+          <div className="relative h-[400px] w-full">
             <Image
               src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
               alt="Coffee brewing"
@@ -90,9 +92,9 @@ export default function Home() {
             <p className="text-gray-600 mb-6">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, cum odit. Debitis voluptatum, dolorem libero repudiandae consequuntur facilis enim, laboriosam fuga, impedit illo assumenda quidem quibusdam ullam ut amet facere.
             </p>
-            <button className="bg-[#C8A27C] text-white px-10 py-3 rounded-full hover:bg-[#A88B6E] transition font-bold tracking-[0.5px] cursor-pointer">
+            <Link href='/about' className="bg-[#C8A27C] text-white px-10 py-3 rounded-full hover:bg-[#A88B6E] transition font-bold tracking-[0.5px] cursor-pointer">
               Подробнее
-            </button>
+            </Link>
           </div>
         </div>
       </section>
