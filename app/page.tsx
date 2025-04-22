@@ -1,16 +1,20 @@
 "use client"
 
-import { Coffee, Clock, MapPin } from "lucide-react"
+import { Coffee, Clock, MapPin, RussianRuble } from "lucide-react"
 import Image from 'next/image'
 import items from './mocks_home'
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Link from "next/link"
+import Head from "next/head"
 
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <Head>
+        <link rel="icon" href="/public/coffe.svg" />
+      </Head>
 
       <Header/>
 
@@ -69,7 +73,7 @@ export default function Home() {
                 </div>
                 <div className="p-4">
                   <h3 className="text-[#362d2d] text-xl font-semibold mb-2">{item.name}</h3>
-                  <p className="text-[#C8A27C] text-xl font-bold">{item.price}</p>
+                  <p className="text-[#C8A27C] text-xl font-bold flex">{item.price}<RussianRuble strokeWidth={3} /></p>
                 </div>
               </div>
             ))}

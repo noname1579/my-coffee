@@ -4,6 +4,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import Image from "next/image"
 import data from "../mocks_menu"
+import { RussianRuble } from "lucide-react"
 
 export default function Menu() {
   return (
@@ -33,7 +34,7 @@ export default function Menu() {
                   <h3 className="text-[#362d2d] text-xl font-bold mb-2">
                     {item.name}
                   </h3>
-                  <p className="text-[#C8A27C] text-xl font-bold">{item.price}</p>
+                  <p className="text-[#C8A27C] text-xl font-bold flex">{item.price}<RussianRuble strokeWidth={3} /></p>
                 </div>
               </div>
             ))}

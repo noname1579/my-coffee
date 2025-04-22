@@ -24,7 +24,7 @@ export default function Contacts () {
             <p className="text-gray-800 text-[17px]">
               г. Ростов-на-Дону
               <br />
-              ул. Пушкинская 197
+              ул. Красноармейская 11
             </p>
           </div>
 

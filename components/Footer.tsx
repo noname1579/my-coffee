@@ -14,7 +14,7 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-4">Адрес</h4>
           <p className="text-gray-400">г. Ростов-на-Дону</p>
-          <p className="text-gray-400">test@mail.ru</p>
+          <p className="text-gray-400">ул. Красноармейская 11</p>
         </div>
       </div>
     </div>
