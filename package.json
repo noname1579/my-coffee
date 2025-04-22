@@ -1,6 +1,6 @@
 {
-  "name": "coffee-app",
-  "version": "0.1.0",
+  "name": "my-coffee",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

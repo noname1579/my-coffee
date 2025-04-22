@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   output: 'export',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/coffee-app/' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/coffee-app' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/my-coffee/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/my-coffee' : '',
 }
 
 export default nextConfig;
