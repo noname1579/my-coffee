@@ -16,13 +16,17 @@ export default function About () {
         <p className="text-[#362d2d] font-bold text-center text-[20px]">Заведение открыто с 2025 года</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center my-15">
           <Image
-            src="https://assets.turbologo.ru/blog/ru/2020/02/18162724/a5a4b6991268b801e30d82bbc757c672-958x575.jpg"
+            src="https://rosretail.com/storage/uploads/blocks/295/image/0.jpg"
             alt=""
             className="rounded-lg w-full h-[400px] object-cover"
             width={50}
             height={50}
           />
-        <p className="text-center font-bold text-[#362d2d] max-w-100 text-xl m-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque saepe sed doloribus expedita iure quas atque corporis facilis adipisci, odit architecto! Magni aperiam veniam illum laudantium minima sunt placeat maxime!</p>
+        <p className="text-center font-bold text-[#362d2d] max-w-100 text-xl m-auto">
+          Кофейня открылась в сердце города в 2025 году. Интерьер кофейни был оформлен в стиле арт-хаус, с картинами местных художников на стенах и уютными уголками для чтения.
+          Секретом успеха кофейни стал не только ароматный кофе, но и особое внимание к каждому посетителю. Кофейня быстро стала центром местной жизни, где рождались новые идеи.
+          Это место стало символом единства и тепла для всех, кто искал уединение или компанию.
+        </p>
         </div>
       </section>
 

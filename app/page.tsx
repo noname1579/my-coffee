@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Head>
-        <link rel="icon" href="/public/coffe.svg" />
+        <link rel="icon" href="/public/coffee.svg" />
       </Head>
 
       <Header/>
@@ -29,9 +29,9 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-6xl font-bold mb-4">My coffee</h1>
-          <p className="text-xl mb-8">Самый лучший кофе у нас</p>
-          <Link href='/menu' className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#967c63] transition text-xl font-bold cursor-pointer mt-6">
+          <h1 className="text-5xl md:6xl font-bold mb-4">My coffee</h1>
+          <p className="text-xl mb-100 mt-10 md:mb-30">Самый лучший кофе у нас</p>
+          <Link href='/menu' className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#967c63] transition text-xl font-bold cursor-pointer">
             Меню
           </Link>
         </div>
@@ -93,8 +93,10 @@ export default function Home() {
           </div>
           <div>
             <h2 className="text-4xl font-bold mb-6 text-black">История кофейни</h2>
-            <p className="text-gray-600 mb-6">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, cum odit. Debitis voluptatum, dolorem libero repudiandae consequuntur facilis enim, laboriosam fuga, impedit illo assumenda quidem quibusdam ullam ut amet facere.
+            <p className="text-gray-600 mb-8">
+              Кофейня открылась в сердце города в 2025 году. Интерьер кофейни был оформлен в стиле арт-хаус, с картинами местных художников на стенах и уютными уголками для чтения.
+              Здесь проводились поэтические вечера, музыкальные выступления и мастер-классы по рисованию.
+              Кофейня быстро стала любимым местом для студентов, художников и всех, кто искал вдохновение и общение.
             </p>
             <Link href='/about' className="bg-[#C8A27C] text-white px-10 py-3 rounded-full hover:bg-[#A88B6E] transition font-bold tracking-[0.5px] cursor-pointer">
               Подробнее
