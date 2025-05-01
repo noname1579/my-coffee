@@ -29,8 +29,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:6xl font-bold mb-4">My coffee</h1>
-          <p className="text-xl mb-100 mt-10 md:mb-30">Самый лучший кофе у нас</p>
+          <h1 className="text-5xl md:6xl font-bold">My coffee</h1>
+          <p className="text-xl mb-70 mt-5 md:mb-30">Самый лучший кофе у нас</p>
           <Link href='/menu' className="bg-[#C8A27C] text-white px-20 py-3 rounded-full hover:bg-[#967c63] transition text-xl font-bold cursor-pointer">
             Меню
           </Link>

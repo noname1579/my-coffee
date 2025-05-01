@@ -5,7 +5,7 @@ import { Coffee } from "lucide-react"
 const Header = () => {
 
   return ( 
-    <div className="fixed w-full bg-white z-50 shadow-sm flex justify-between items-center h-15 md:px-50 px-10">
+    <div className="fixed w-full bg-white z-50 shadow-sm flex justify-between items-center h-13 md:px-50 px-10">
       <div className="text-[#362d2d] flex items-center">
         <Coffee size={30} /> 
         <h1 className="text-2xl font-bold text-[#362d2d] flex p-3">My coffee</h1>
