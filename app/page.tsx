@@ -7,9 +7,22 @@ import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Link from "next/link"
 import Head from "next/head"
+import { useState } from "react"
 
 
 export default function Home() {
+
+  const [flippedCards, setFlippedCards] = useState<boolean[]>(Array(items.length).fill(true));
+
+  const reverseCard = (index: number) => {
+    // Копируем текущее состояние
+    const newFlippedCards = [...flippedCards];
+    // Переключаем состояние для карточки по индексу
+    newFlippedCards[index] = !newFlippedCards[index];
+    // Обновляем состояние
+    setFlippedCards(newFlippedCards);
+  }
+
   return (
     <main className="min-h-screen">
       <Head>
@@ -61,9 +74,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Популярные напитки</h2>
           <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            { items.map((item, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110">
-                <div className="relative h-48">
+            {items.map((item, index) => (
+              <div key={index} className='bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
+                <div className={`relative h-48 transition-transform duration-300 transform ${flippedCards[index] ? 'rotate-y-180' : ''}`}>
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -71,9 +84,14 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
+
                 <div className="p-4">
                   <h3 className="text-[#362d2d] text-xl font-semibold mb-2">{item.name}</h3>
                   <p className="text-[#C8A27C] text-xl font-bold flex">{item.price}<RussianRuble strokeWidth={3} /></p>
+                </div>
+
+                <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center text-center backface-hidden transform ${flippedCards[index] ? 'rotate-y-180' : ''}`}>
+                  <p className="text-[#362d2d] text-lg">{item.discription}</p>
                 </div>
               </div>
             ))}
