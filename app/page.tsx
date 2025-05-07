@@ -12,7 +12,14 @@ import 'ldrs/react/DotPulse.css'
 
 export default function Home() {
 
-  const [data, setData] = useState(null)
+  interface Item {
+    image: string
+    name: string
+    price: number
+    description: string
+  }
+
+  const [data, setData] = useState<Item[]>([])
   const [flippedCards, setFlippedCards] = useState<boolean[]>([])
 
   const api_home = 'https://my-coffee-server-tau.vercel.app/data'
