@@ -2,32 +2,56 @@
 
 import { Coffee, Clock, MapPin, RussianRuble } from "lucide-react"
 import Image from 'next/image'
-import items from './mocks_home'
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import Link from "next/link"
-import Head from "next/head"
-import { useState } from "react"
-
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { DotPulse } from 'ldrs/react'
+import 'ldrs/react/DotPulse.css'
 
 export default function Home() {
 
-  const [flippedCards, setFlippedCards] = useState<boolean[]>(Array(items.length).fill(true));
+  const [data, setData] = useState(null)
+  const [flippedCards, setFlippedCards] = useState<boolean[]>([])
+
+  const api_home = 'https://my-coffee-server-tau.vercel.app/data'
 
   const reverseCard = (index: number) => {
-    // Копируем текущее состояние
-    const newFlippedCards = [...flippedCards];
-    // Переключаем состояние для карточки по индексу
-    newFlippedCards[index] = !newFlippedCards[index];
-    // Обновляем состояние
-    setFlippedCards(newFlippedCards);
+    const newFlippedCards = [...flippedCards]
+    newFlippedCards[index] = !newFlippedCards[index]
+    setFlippedCards(newFlippedCards)
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await axios.get(api_home).then(res => setData(res.data))
+      }
+
+      catch(error) {
+        console.error(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  if (!data) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen gap-10 md:gap-18">
+        <h1 className="text-2xl">Загрузка</h1>
+        <DotPulse
+          size="43"
+          speed="1.3"
+          color="white" 
+        />
+      </div>
+    )
   }
 
   return (
     <main className="min-h-screen">
-      <Head>
-        <link rel="icon" href="/public/coffee.svg" />
-      </Head>
 
       <Header/>
 
@@ -74,9 +98,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-black">Популярные напитки</h2>
           <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {items.map((item, index) => (
+            {data.map((item, index) => (
               <div key={index} className='bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
-                <div className={`relative h-48 transition-transform duration-300 transform ${flippedCards[index] ? 'rotate-y-180' : ''}`}>
+                <div className={`relative h-48 transition-transform duration-300 transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -90,8 +114,8 @@ export default function Home() {
                   <p className="text-[#C8A27C] text-xl font-bold flex">{item.price}<RussianRuble strokeWidth={3} /></p>
                 </div>
 
-                <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center text-center backface-hidden transform ${flippedCards[index] ? 'rotate-y-180' : ''}`}>
-                  <p className="text-[#362d2d] text-lg">{item.discription}</p>
+                <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center text-center backface-hidden transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
+                  <p className="text-[#362d2d] text-lg">{item.description}</p>
                 </div>
               </div>
             ))}
