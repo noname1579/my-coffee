@@ -3,10 +3,57 @@
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import Image from "next/image"
-import data from "../mocks_menu"
 import { RussianRuble } from "lucide-react"
+import { DotPulse } from "ldrs/react"
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 export default function Menu() {
+  interface Item {
+    image: string
+    name: string
+    price: number
+    description: string
+  }
+
+  const [data, setData] = useState<Item[]>()
+  const [flippedCards, setFlippedCards] = useState<boolean[]>([])
+
+  const api_menu = 'https://my-coffee-server-tau.vercel.app/data/menu'
+
+  const reverseCard = (index: number) => {
+    const newFlippedCards = [...flippedCards]
+    newFlippedCards[index] = !newFlippedCards[index]
+    setFlippedCards(newFlippedCards)
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await axios.get(api_menu).then(res => setData(res.data))
+      }
+
+      catch(error) {
+        console.error(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  if (!data) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen gap-10 md:gap-18">
+        <h1 className="text-2xl">Загрузка</h1>
+        <DotPulse
+          size="43"
+          speed="2"
+          color="white" 
+        />
+      </div>
+    )
+  }
+
   return (
     <main className="min-h-screen">
       <Header />
@@ -18,11 +65,8 @@ export default function Menu() {
           </h1>
           <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-y-10">
             {data.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105"
-              >
-                <div className="relative h-48">
+              <div key={index} className='bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
+                <div className={`relative h-48 transition-transform duration-300 transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -30,11 +74,14 @@ export default function Menu() {
                     className="object-cover"
                   />
                 </div>
+
                 <div className="p-4">
-                  <h3 className="text-[#362d2d] text-xl font-bold mb-2">
-                    {item.name}
-                  </h3>
+                  <h3 className="text-[#362d2d] text-xl font-semibold mb-2">{item.name}</h3>
                   <p className="text-[#C8A27C] text-xl font-bold flex">{item.price}<RussianRuble strokeWidth={3} /></p>
+                </div>
+
+                <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center text-center backface-hidden transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
+                  <p className="text-[#362d2d] text-lg">{item.description}</p>
                 </div>
               </div>
             ))}

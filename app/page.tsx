@@ -19,10 +19,10 @@ export default function Home() {
     description: string
   }
 
-  const [data, setData] = useState<Item[]>([])
+  const [data, setData] = useState<Item[]>()
   const [flippedCards, setFlippedCards] = useState<boolean[]>([])
 
-  const api_home = 'https://my-coffee-server-tau.vercel.app/data'
+  const api_home = 'https://my-coffee-server-tau.vercel.app/data/home'
 
   const reverseCard = (index: number) => {
     const newFlippedCards = [...flippedCards]
@@ -46,11 +46,11 @@ export default function Home() {
 
   if (!data) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen gap-10 md:gap-18">
+      <div className="flex flex-col items-center bg-[#362d2d] justify-center h-screen gap-10 md:gap-18">
         <h1 className="text-2xl">Загрузка</h1>
         <DotPulse
           size="43"
-          speed="1.3"
+          speed="2"
           color="white" 
         />
       </div>
