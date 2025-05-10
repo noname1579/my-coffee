@@ -103,7 +103,7 @@ export default function Home() {
 
       <section className="py-20 bg-[#F8F5F2]">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 text-black">Популярные напитки</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-center mb-12 text-black">Популярные напитки</h2>
           <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.map((item, index) => (
               <div key={index} className='bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
@@ -141,7 +141,7 @@ export default function Home() {
             />
           </div>
           <div>
-            <h2 className="text-4xl font-bold mb-6 text-black">История кофейни</h2>
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-black">История кофейни</h2>
             <p className="text-gray-600 mb-8">
               Кофейня открылась в сердце города в 2025 году. Интерьер кофейни был оформлен в стиле арт-хаус, с картинами местных художников на стенах и уютными уголками для чтения.
               Здесь проводились поэтические вечера, музыкальные выступления и мастер-классы по рисованию.

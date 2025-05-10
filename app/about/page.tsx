@@ -40,7 +40,7 @@ export default function About () {
       <Header/>
 
       <section className="pt-32 pb-4 bg-[#F8F5F2] md:px-80 px-5">
-        <h1 className="text-4xl font-bold text-center mb-12 text-black">
+        <h1 className="text-2xl md:text-4xl font-bold text-center mb-12 text-black">
           История кофейни
         </h1>
         <p className="text-[#362d2d] font-bold text-center text-[20px]">Заведение открыто с 2025 года</p>
