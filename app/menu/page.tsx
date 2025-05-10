@@ -44,7 +44,7 @@ export default function Menu() {
   if (!data) {
     return (
       <div className="flex flex-col items-center bg-[#362d2d] justify-center h-screen gap-10 md:gap-18">
-        <h1 className="text-2xl">Загрузка</h1>
+        <h1 className="text-2xl text-white">Загрузка</h1>
         <DotPulse
           size="43"
           speed="2"
