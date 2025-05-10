@@ -59,11 +59,11 @@ export default function Menu() {
       <Header />
 
       <section className="pt-32 pb-20 bg-[#F8F5F2]">
-        <div className="max-w-6xl mx-auto px-4">
-          <h1 className="text-4xl font-bold text-center mb-12 text-black">
+        <div className="max-w-6xl mx-auto px-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black">
             Наше меню
           </h1>
-          <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-y-10">
+          <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-y-8">
             {data.map((item, index) => (
               <div key={index} className='bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
                 <div className={`relative h-48 transition-transform duration-300 transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
