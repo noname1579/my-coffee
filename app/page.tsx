@@ -122,7 +122,7 @@ export default function Home() {
                 </div>
 
                 <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center text-center backface-hidden transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
-                  <p className="text-[#362d2d] text-lg">{item.description}</p>
+                  <p className="text-[#362d2d] text-lg cursor-default">{item.description}</p>
                 </div>
               </div>
             ))}
