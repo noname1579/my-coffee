@@ -37,7 +37,7 @@ export default function Home() {
       }
 
       catch(error) {
-        console.error(error)
+        console.error(error + ' :/')
       }
     }
 
@@ -105,7 +105,7 @@ export default function Home() {
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-12 text-black">Популярные напитки</h2>
           <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.map((item, index) => (
-              <div key={index} className='bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
+              <div key={index} className='bg-white cursor-pointer rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
                 <div className={`relative h-48 transition-transform duration-300 transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
                   <Image
                     src={item.image}
@@ -120,8 +120,8 @@ export default function Home() {
                   <p className="text-[#C8A27C] text-xl font-bold flex">{item.price}<RussianRuble strokeWidth={3} /></p>
                 </div>
 
-                <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center text-center backface-hidden transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
-                  <p className="text-[#362d2d] text-lg cursor-default">{item.description}</p>
+                <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center cursor-pointer text-center backface-hidden transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
+                  <p className="text-[#362d2d] text-lg">{item.description}</p>
                 </div>
               </div>
             ))}

@@ -64,7 +64,7 @@ export default function Menu() {
           </h1>
           <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-y-8">
             {data.map((item, index) => (
-              <div key={index} className='bg-white rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
+              <div key={index} className='bg-white cursor-pointer rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110' onClick={() => reverseCard(index)}>
                 <div className={`relative h-48 transition-transform duration-300 transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
                   <Image
                     src={item.image}
@@ -80,7 +80,7 @@ export default function Menu() {
                 </div>
 
                 <div className={`absolute inset-0 bg-white p-4 flex items-center justify-center text-center backface-hidden transform ${flippedCards[index] ? '' : 'rotate-y-180'}`}>
-                  <p className="text-[#362d2d] text-lg cursor-default">{item.description}</p>
+                  <p className="text-[#362d2d] text-lg">{item.description}</p>
                 </div>
               </div>
             ))}
