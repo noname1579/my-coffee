@@ -2,6 +2,7 @@
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import YandexMap from "@/components/YandexMap"
 
 export default function Contacts () {
 
@@ -68,6 +69,8 @@ export default function Contacts () {
         </div>
 
       </section>
+
+      <YandexMap apiKey='9aac5128-f4a3-4873-b629-97a7d5402b90' />
 
       <Footer/>
     </main>
