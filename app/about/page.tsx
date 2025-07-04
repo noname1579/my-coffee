@@ -1,6 +1,7 @@
 'use client'
 import Footer from "@/components/Footer"
 import Header from "@/components/Header"
+import YandexMap from "@/components/YandexMap"
 import axios from "axios"
 import { Star } from "lucide-react"
 import Image from "next/image"
@@ -81,6 +82,7 @@ export default function About () {
         </div>
       </section>
 
+      <YandexMap apiKey='9aac5128-f4a3-4873-b629-97a7d5402b90' />
 
       <Footer/>
     </main>

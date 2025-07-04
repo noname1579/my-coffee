@@ -11,10 +11,10 @@ const Header = () => {
         <h1 className="text-2xl font-bold text-[#362d2d] flex p-3">My coffee</h1>
       </div>
       <nav className="space-x-10 md:flex hidden">
-        <Link href="/" className="text-black hover:text-[#C8A27C] transition text-[20px]">Главная</Link>
-        <Link href="/menu" className="text-black hover:text-[#C8A27C] transition text-[20px]">Меню</Link>
-        <Link href="/about" className="text-black hover:text-[#C8A27C] transition text-[20px]">О нас</Link>
-        <Link href="/contacts" className="text-black hover:text-[#C8A27C] transition text-[20px]">Контакты</Link>
+        <Link href="/" className="text-black hover:text-[#C8A27C] transition text-xl">Главная</Link>
+        <Link href="/menu" className="text-black hover:text-[#C8A27C] transition text-xl">Меню</Link>
+        <Link href="/about" className="text-black hover:text-[#C8A27C] transition text-xl">О нас</Link>
+        <Link href="/contacts" className="text-black hover:text-[#C8A27C] transition text-xl">Контакты</Link>
       </nav>
 
       <div className="md:hidden">
