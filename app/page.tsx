@@ -141,7 +141,8 @@ export default function Home() {
           
           <div className="grid md:gap-x-10 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.map((item, index) => (
-              <div 
+              <div
+                key={index} 
                 className='bg-white cursor-pointer rounded-lg overflow-hidden shadow-lg object-cover transition-transform duration-300 transform hover:scale-110'
                 onClick={() => reverseCard(index)}
               >

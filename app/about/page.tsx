@@ -63,7 +63,7 @@ export default function About() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-2xl md:text-4xl font-bold text-center mb-12 text-black"        >
+        <h1 className="text-2xl md:text-4xl font-bold text-center mb-12 text-black">
           История кофейни
         </h1>
         
