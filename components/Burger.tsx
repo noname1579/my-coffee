@@ -15,9 +15,8 @@ export default function Burger() {
     } else {
       document.body.style.overflow = 'auto'
     }
-  }, [isOpen]);
+  }, [isOpen])
 
-  // Варианты анимации для меню
   const menuVariants = {
     hidden: { 
       opacity: 0,
@@ -28,7 +27,7 @@ export default function Burger() {
       y: 0,
       transition: {
         when: "beforeChildren",
-        staggerChildren: 0.1
+        staggerChildren: 0.2
       }
     },
     exit: {
@@ -42,7 +41,6 @@ export default function Burger() {
     }
   }
 
-  // Варианты анимации для пунктов меню
   const itemVariants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0 },
