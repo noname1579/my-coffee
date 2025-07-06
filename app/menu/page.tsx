@@ -43,11 +43,11 @@ export default function Menu() {
 
   if (!data) {
     return (
-      <div className="flex flex-col items-center bg-[#362d2d] justify-center h-screen gap-10 md:gap-18">
+      <div className="flex flex-col items-center bg-white justify-center h-screen gap-10 md:gap-18">
         <DotPulse
           size="43"
           speed="2"
-          color="white" 
+          color="#362d2d" 
         />
       </div>
     )
