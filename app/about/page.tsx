@@ -6,7 +6,7 @@ import { Star } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { fetchWithFallback } from "@/lib/fetchData"
+import { fetchLocalData } from "@/lib/fetchData"
 
 export default function About() {
   interface Item {
@@ -17,11 +17,8 @@ export default function About() {
 
   const [data, setData] = useState<Item[]>([])
 
-  const api_comments = "https://my-coffee-server-tau.vercel.app/data/comments"
-  const fallback_comments = "/data/comments.json"
-
   useEffect(() => {
-    fetchWithFallback<Item[]>(api_comments, fallback_comments)
+    fetchLocalData<Item[]>("/data/comments.json")
       .then((res) => setData(res))
       .catch((error) => console.error(error))
   }, [])

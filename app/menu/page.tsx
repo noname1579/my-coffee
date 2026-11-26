@@ -7,7 +7,7 @@ import { RussianRuble } from "lucide-react"
 import { DotPulse } from "ldrs/react"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { fetchWithFallback } from "@/lib/fetchData"
+import { fetchLocalData } from "@/lib/fetchData"
 
 export default function Menu() {
   interface Item {
@@ -19,11 +19,8 @@ export default function Menu() {
 
   const [data, setData] = useState<Item[]>()
 
-  const api_menu = "https://my-coffee-server-tau.vercel.app/data/menu"
-  const fallback_menu = "/data/menu.json"
-
   useEffect(() => {
-    fetchWithFallback<Item[]>(api_menu, fallback_menu)
+    fetchLocalData<Item[]>("/data/menu.json")
       .then((res) => setData(res))
       .catch((error) => console.error(error))
   }, [])

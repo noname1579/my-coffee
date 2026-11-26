@@ -1,11 +1,10 @@
-export async function fetchWithFallback<T>(apiUrl: string, fallbackUrl: string): Promise<T> {
+export async function fetchLocalData<T>(path: string): Promise<T> {
   try {
-    const res = await fetch(apiUrl, { cache: 'no-store' })
-    if (!res.ok) throw new Error('API error')
+    const res = await fetch(path)
+    if (!res.ok) throw new Error(`Failed to load ${path}: ${res.status}`)
     return await res.json()
   } catch (e) {
-    console.warn('API недоступен, берём локальные данные', e)
-    const res = await fetch(fallbackUrl)
-    return await res.json()
+    console.error('Ошибка загрузки локальных данных:', e)
+    throw e
   }
 }

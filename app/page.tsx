@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 import { DotPulse } from "ldrs/react"
 import "ldrs/react/DotPulse.css"
 import { motion } from "framer-motion"
-import { fetchWithFallback } from "@/lib/fetchData"
+import { fetchLocalData } from "@/lib/fetchData"
 
 export default function Home() {
   interface Item {
@@ -21,11 +21,8 @@ export default function Home() {
 
   const [data, setData] = useState<Item[]>()
 
-  const api_home = "https://my-coffee-server-tau.vercel.app/data/home"
-  const fallback_home = "/data/home.json"
-
   useEffect(() => {
-    fetchWithFallback<Item[]>(api_home, fallback_home)
+    fetchLocalData<Item[]>("/data/home.json")
       .then((res) => setData(res))
       .catch((error) => console.error(error + " :/"))
   }, [])
