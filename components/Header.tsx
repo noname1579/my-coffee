@@ -1,27 +1,43 @@
+"use client"
 import Burger from "./Burger"
 import Link from "next/link"
 import { Coffee } from "lucide-react"
+import { useEffect, useState } from "react"
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false)
 
-  return ( 
-    <div className="fixed w-full bg-white z-50 shadow-sm flex justify-between items-center h-14 md:px-50 px-10">
-      <Link href="/" className="text-[#362d2d] flex items-center">
-        <Coffee size={30} /> 
-        <h1 className="text-2xl font-bold text-[#362d2d] flex p-3">My coffee</h1>
-      </Link>
-      <nav className="space-x-10 md:flex hidden">
-        <Link href="/" className="text-black hover:text-[#C8A27C] transition text-lg">Главная</Link>
-        <Link href="/menu" className="text-black hover:text-[#C8A27C] transition text-lg">Меню</Link>
-        <Link href="/about" className="text-black hover:text-[#C8A27C] transition text-lg">О нас</Link>
-        <Link href="/contacts" className="text-black hover:text-[#C8A27C] transition text-lg">Контакты</Link>
-      </nav>
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
-      <div className="md:hidden">
-        <Burger />
+  return (
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-[#1A1512]/90 backdrop-blur-md py-2" : "bg-transparent py-4"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <Link href="/" className="text-[#F5F0EB] flex items-center gap-2">
+          <Coffee size={28} />
+          <span className="text-xl font-bold" style={{ fontFamily: "var(--font-unbounded)" }}>
+            My coffee
+          </span>
+        </Link>
+        <nav className="space-x-8 md:flex hidden">
+          <Link href="/" className="text-[#F5F0EB]/80 hover:text-[#C8A27C] transition text-sm uppercase tracking-wider">Главная</Link>
+          <Link href="/menu" className="text-[#F5F0EB]/80 hover:text-[#C8A27C] transition text-sm uppercase tracking-wider">Меню</Link>
+          <Link href="/about" className="text-[#F5F0EB]/80 hover:text-[#C8A27C] transition text-sm uppercase tracking-wider">О нас</Link>
+          <Link href="/contacts" className="text-[#F5F0EB]/80 hover:text-[#C8A27C] transition text-sm uppercase tracking-wider">Контакты</Link>
+        </nav>
+        <div className="md:hidden">
+          <Burger />
+        </div>
       </div>
-    </div>
+    </header>
   )
 }
- 
+
 export default Header

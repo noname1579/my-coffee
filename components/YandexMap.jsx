@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react"
 
-export default function YandexMap({ apiKey }) {
-  const mapRef = useRef(null)
+export default function YandexMap({ apiKey }: { apiKey: string }) {
+  const mapRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!apiKey) {
@@ -17,7 +17,7 @@ export default function YandexMap({ apiKey }) {
     }
 
     const scriptId = "yandex-maps-script"
-    
+
     if (document.getElementById(scriptId)) {
       const checkLoaded = () => {
         if (window.ymaps && window.ymaps.Map) {
@@ -27,38 +27,37 @@ export default function YandexMap({ apiKey }) {
         }
       }
       checkLoaded()
-      return;
+      return
     }
 
     const script = document.createElement("script")
     script.id = scriptId
     script.src = `https://api-maps.yandex.ru/2.1/?apikey=${apiKey}&lang=ru_RU`
     script.async = true
-
-    script.onload = () => {
-      initMap()
-    }
-
-    document.head.appendChild(script);
+    script.onload = () => initMap()
+    document.head.appendChild(script)
 
     function initMap() {
       try {
         window.ymaps.ready(() => {
+          if (!mapRef.current) return
           new window.ymaps.Map(mapRef.current, {
-            center: [47.226001, 39.700002],
-            zoom: 12,
-            controls: ["zoomControl", "fullscreenControl"]
+            center: [47.2236, 39.7183],
+            zoom: 16,
+            controls: ["zoomControl", "fullscreenControl"],
           }).geoObjects.add(
-            new window.ymaps.Placemark([47.226001, 39.700002], {
-              hintContent: "Наша кофейня",
-              balloonContent: "My Coffee"
-            }, {
-              preset: "islands#redDotIcon"
-            })
-          );
-        });
+            new window.ymaps.Placemark(
+              [47.2236, 39.7183],
+              {
+                hintContent: "My coffee",
+                balloonContent: "My coffee — Красноармейская 11",
+              },
+              { preset: "islands#redDotIcon" }
+            )
+          )
+        })
       } catch (error) {
-        console.error("ошибка:", error);
+        console.error("ошибка:", error)
       }
     }
 
@@ -70,11 +69,8 @@ export default function YandexMap({ apiKey }) {
   }, [apiKey])
 
   return (
-    <div className="w-full h-[500px]">
-      <div 
-        ref={mapRef} 
-        className="w-full h-full"
-      />
+    <div className="w-full h-full">
+      <div ref={mapRef} className="w-full h-full" />
     </div>
   )
 }
